@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn tutorial.wsgi
+web: python manage.py migrate && django-admin createsuperuser 'azaza123' && gunicorn tutorial.wsgi
