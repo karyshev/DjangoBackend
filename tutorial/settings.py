@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+try:
+    import django_heroku
+except:
+    django_heroku = None
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +29,7 @@ SECRET_KEY = 'django-insecure-+tf2l@bq8k3zd5#3y22*7wj^)#930j#us8a2mks64px5vef38-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -135,4 +139,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+# Activate Django_heroku
+if django_heroku:
+    django_heroku.settings(locals())
 
